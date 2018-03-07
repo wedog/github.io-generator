@@ -38,13 +38,13 @@ date: 2018-01-24 7:07:20
 
 **CSS3新增伪类举例：** 
 
-1. p:first-of-type 选择属于其父元素的首个<p>元素的每个<p>元素。 
-2. p:last-of-type 选择属于其父元素的最后<p>元素的每个<p>元素。
-3.  p:only-of-type 选择属于其父元素唯一的<p>元素的每个<p>元素。 
-4. p:only-child 选择属于其父元素的唯一子元素的每个<p>元素。 
-5. p:nth-child(2) 选择属于其父元素的第二个子元素的每个<p>元素。 
-6. :enabled、:disabled 控制表单控件的禁用状态。 
-7. :checked 单选框或复选框被选中。
+1. `p:first-of-type` 选择属于其父元素的首个`<p>`元素的每个`<p>`元素。 
+2. `p:last-of-type` 选择属于其父元素的最后`<p>`元素的每个`<p>`元素。
+3.  `p:only-of-type` 选择属于其父元素唯一的`<p>`元素的每个`<p>`元素。 
+4. `p:only-child` 选择属于其父元素的唯一子元素的每个`<p>`元素。 
+5. `p:nth-child(2)` 选择属于其父元素的第二个子元素的每个`<p>`元素。 
+6. `:enabled、:disabled` 控制表单控件的禁用状态。 
+7. `:checked` 单选框或复选框被选中。
 
 **可继承**： font-size font-family color, UL LI DL DD DT; 
 
