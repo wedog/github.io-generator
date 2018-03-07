@@ -1,0 +1,19 @@
+掘金:
+    link: https://juejin.im/timeline
+    avatar: https://gold-cdn.xitu.io/favicons/v2/apple-touch-icon.png
+    desc: "掘金是一个帮助开发者成长的社区"
+
+segmentfault:
+    link: https://segmentfault.com/
+    avatar: https://static.segmentfault.com/v-5a9d0d47/global/img/touch-icon.png
+    desc: "中国领先的开发者技术社区"
+
+稀土区:
+    link: https://xituqu.com/
+    avatar: http://123.206.76.210/wp-content/uploads/2018/02/2016051812344389-1.png
+    desc: "优秀设计开发资源分享"
+
+InfoQ:
+    link: http://www.infoq.com/cn/
+    avatar: https://www.infoq.com/apple-touch-icon.png
+    desc: "促进软件开发领域知识与创新的传播"
