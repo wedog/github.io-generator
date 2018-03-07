@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var observer = (function () {
+        var subscribers = {};
+        return {
+            listen: function (key, fn) {
+                subscribers[key] = subscribers[key] || [];
+                subscribers[key].push(fn);
+            },
+            trigger: function () {
+                var key = Array.prototype.shift.call(arguments);
+                var subscriberList = subscribers[key];
+                if (!subscriberList || subscriberList.length < 0) {
+                    return;
+                }
+                for (var i = 0; i < subscriberList.length; i++) {
+                    var fn = subscriberList[i];
+                    fn.apply(this, arguments);
+                }
+            },
+            remove: function (key, fn) {
+                var fns = subscribers[key];
+                if (!fns) {
+                    return;
+                }
+                if (!fn) {
+                    delete subscribers[key];
+                } else {
+                    for (var i = 0; i < fns.length; i++) {
+                        if (fn === fns[i]) {
+                            fns.splice(i, 1);
+                        }
+                    }
+                }
+            }
+        }
+    })();
+    var fn = function (msg) {
+        console.log("收到消息：" + msg);
+    }
+    observer.listen('ly', fn);
+    observer.trigger('ly', 'hello world');
+    observer.remove('ly', fn);
+
+    var createSingleInstance = function() {
+        var instance = null;
+        return function(fn) {
+            if (!instance) {
+                instance = new fn();
+            }
+            return instance;
+        }
+    }();
+
+    function createModal(){
+        this.name = 1;
+    }
+    var fnA = createSingleInstance(createModal);
+    var fnB = createSingleInstance(createModal);
+    console.log(fnA === fnB);
+
+
+    function clone(item){
+        if(!item){
+            return item;
+        }
+        var types = [String, Number, Boolean];
+        var result;
+        types.forEach(function(e){
+            if(item instanceof e){
+                result = e(item);
+            }
+        })
+        if(result === void 0){
+            if(Object.prototype.toString.call(item) === '[object Array]'){
+                result = [];
+                item.forEach(function(e, i){
+                    result[i] = e;
+                })
+            }else if(typeof item === 'object'){
+                result = {};
+                for(var i in item){
+                    result[i] = clone(item[i]);
+                }
+            }else{
+                result = item;
+            }
+        }
+        return result;
+    }
+    var a = {
+        b: 1,
+        c: [2, 3],
+        d: {e: 4}
+    }
+    var r = clone(a);
+    console.log(r);
+
+</script>
+</body>
+</html>
